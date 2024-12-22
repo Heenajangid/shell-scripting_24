@@ -40,9 +40,10 @@ memUsedPercentage=$(expr $memUsed \* 100 / $totalMem)
 # Step 4: Log the date, time, and memory usage percentage to a file (mem_report.tsv)
 echo -e "$(date +"%r %D")\t$memUsedPercentage" >> mem_report.tsv
 ```
-free -m: Displays memory usage in megabytes. The command is used to extract used memory ($3) and total memory ($2).
-head -2 | tail -1: These commands are used to select the second line of the free -m output, where the memory information is located.
-awk '{print $3}': Extracts the third column (used memory) from the free -m output.
-awk '{print $2}': Extracts the second column (total memory) from the free -m output.
-expr $memUsed \* 100 / $totalMem: Calculates the memory usage percentage.
-echo -e "$(date +"%r %D")\t$memUsedPercentage" >> mem_report.tsv: Logs the date and memory usage percentage to the mem_report.tsv file in tab-separated format.
+## Commands Usage
+`free -m`: Displays memory usage in megabytes. The command is used to extract used memory ($3) and total memory ($2).
+`head -2 | tail -1`: These commands are used to select the second line of the free -m output, where the memory information is located.
+`awk '{print $3}'`: Extracts the third column (used memory) from the free -m output.
+`awk '{print $2}'`: Extracts the second column (total memory) from the free -m output.
+`expr $memUsed \* 100 / $totalMem`: Calculates the memory usage percentage.
+`echo -e "$(date +"%r %D")\t$memUsedPercentage" >> mem_report.tsv`: Logs the date and memory usage percentage to the mem_report.tsv file in tab-separated format.
